@@ -8,6 +8,7 @@ interface Request {
   sku: string;
   descrition: string;
   shortDescription: string;
+  creator_id: string;
 }
 
 class CreateProductService {
@@ -16,7 +17,7 @@ class CreateProductService {
     currentPrice,
     sku,
     descrition,
-    shortDescription,
+    shortDescription,creator_id,
   }: Request): Promise<Product> {
     const productsRepository = getCustomRepository(ProductsRepository);
     // SKU igual
@@ -32,6 +33,7 @@ class CreateProductService {
       sku,
       descrition,
       shortDescription,
+      creator_id
     });
 
     return await productsRepository.save(product)

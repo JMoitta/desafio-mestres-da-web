@@ -29,6 +29,9 @@ class Product {
   @Column()
   shortDescription: string;
 
+  @Column()
+  creator_id: string;
+  
   @ManyToOne(() => User)
   @JoinColumn({name: 'creator_id'})
   creator: User;
