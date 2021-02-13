@@ -17,7 +17,8 @@ class CreateProductService {
     currentPrice,
     sku,
     descrition,
-    shortDescription,creator_id,
+    shortDescription,
+    creator_id,
   }: Request): Promise<Product> {
     const productsRepository = getCustomRepository(ProductsRepository);
     // SKU igual
