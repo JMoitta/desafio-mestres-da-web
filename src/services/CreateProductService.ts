@@ -1,4 +1,5 @@
 import { getCustomRepository } from "typeorm";
+import AppError from "../errors/AppError";
 import Product from "../models/Product";
 import ProductsRepository from "../repositories/ProductsRepository";
 
@@ -25,7 +26,7 @@ class CreateProductService {
     const findProductInSameSKU = await productsRepository.findBySKU(sku);
 
     if (findProductInSameSKU) {
-      throw Error("This product same SKU");
+      throw new AppError("This product same SKU");
     }
 
     const product = productsRepository.create({
