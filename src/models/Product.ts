@@ -4,10 +4,12 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
 import User from "./User";
+import VariableProduct from "./VariableProduct";
 
 @Entity("products")
 class Product {
@@ -35,6 +37,9 @@ class Product {
   @Column()
   isVariable: boolean;
 
+  @OneToMany(() => VariableProduct, variableProduct => variableProduct.productOrigin)
+  variableProducts: VariableProduct[];
+  
   @Column()
   creator_id: string;
   
