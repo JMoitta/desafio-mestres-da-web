@@ -11,7 +11,7 @@ import Variation from "./Variation";
 import User from "./User";
 import VariableProduct from "./VariableProduct";
 
-@Entity("product-variations")
+@Entity("product_variations")
 class ProductVariation {
 
   @PrimaryGeneratedColumn("uuid")
