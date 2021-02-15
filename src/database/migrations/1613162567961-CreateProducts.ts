@@ -67,6 +67,11 @@ export default class CreateProducts1613162567961 implements MigrationInterface {
             default: 'now()',
             isNullable: false,
           },
+          {
+            name: "deleted_at",
+            type: "timestamp",
+            isNullable: true,
+          },
         ],
       })
     );
