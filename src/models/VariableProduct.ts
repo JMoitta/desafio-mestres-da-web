@@ -4,13 +4,15 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
 import Product from "./Product";
+import ProductVariation from "./ProductVariation";
 import User from "./User";
 
-@Entity("variable-products")
+@Entity("variable_products")
 class VariableProduct {
   @PrimaryGeneratedColumn("uuid")
   id: string;
@@ -22,7 +24,7 @@ class VariableProduct {
   sku: string;
 
   @Column()
-  descrition: string;
+  description: string;
 
   @Column()
   shortDescription: string;
@@ -30,10 +32,13 @@ class VariableProduct {
   @Column()
   stock: number;
 
+  @OneToMany(() => ProductVariation, productVariation => productVariation.variableProduct)
+  productVariations: ProductVariation[];
+
   @Column()
   product_origin_id: string;
 
-  @ManyToOne(() => Product)
+  @ManyToOne(() => Product, product => product.variableProducts)
   @JoinColumn({name: 'product_origin_id'})
   productOrigin: Product;
 
