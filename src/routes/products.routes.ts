@@ -4,6 +4,7 @@ import ensureAuthenticated from "../middlewares/ensureAuthenticated";
 import Product from "../models/Product";
 import ProductsRepository from "../repositories/ProductsRepository";
 import CreateProductService from "../services/CreateProductService";
+import DeleteProductService from "../services/DeleteProductService";
 
 const productsRouter = Router();
 
@@ -43,6 +44,16 @@ productsRouter.post("/", async (request, response) => {
   });
 
   return response.json(product);
+});
+
+productsRouter.delete('/:id', async (request, response) => {
+  const { id } = request.params;
+
+  const deleteProduct = new DeleteProductService()
+
+  await deleteProduct.execute({id});
+
+  return response.status(204).send();
 });
 
 export default productsRouter;
