@@ -56,7 +56,7 @@ export default class CreateProducts1613162567961 implements MigrationInterface {
             isNullable: false,
           },
           {
-            name: "create_at",
+            name: "created_at",
             type: "timestamp",
             default: 'now()',
             isNullable: false,
