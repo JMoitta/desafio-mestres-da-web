@@ -29,10 +29,12 @@ export default class CreateProducts1613162567961 implements MigrationInterface {
           {
             name: "sku",
             type: "varchar",
+            isNullable: false,
+            isUnique: true,
             length: "100",
           },
           {
-            name: "descrition",
+            name: "description",
             type: "VARCHAR",
             length: '100',
             isNullable: false,
@@ -41,6 +43,16 @@ export default class CreateProducts1613162567961 implements MigrationInterface {
             name: "shortDescription",
             type: "VARCHAR",
             length: "1000",
+            isNullable: false,
+          },
+          {
+            name: "stock",
+            type: "integer",
+            isNullable: false,
+          },
+          {
+            name: "isVariable",
+            type: "boolean",
             isNullable: false,
           },
           {

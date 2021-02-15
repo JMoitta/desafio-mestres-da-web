@@ -24,10 +24,16 @@ class Product {
   sku: string;
 
   @Column()
-  descrition: string;
+  description: string;
 
   @Column()
   shortDescription: string;
+
+  @Column()
+  stock: number;
+
+  @Column()
+  isVariable: boolean;
 
   @Column()
   creator_id: string;
