@@ -24,6 +24,11 @@ export default class CreateVariation1613330537332 implements MigrationInterface 
             isNullable: false,
           },
           {
+            name: "description",
+            type: "varchar",
+            isNullable: false,
+          },
+          {
             name: "type",
             type: "varchar",
             isNullable: false,
