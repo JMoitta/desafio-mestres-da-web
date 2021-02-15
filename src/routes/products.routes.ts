@@ -22,8 +22,7 @@ productsRouter.post("/", async (request, response) => {
     currentPrice,
     sku,
     descrition,
-    shortDescription,
-    creator_id
+    shortDescription
   } = request.body;
 
   const createProduct = new CreateProductService();
@@ -33,7 +32,8 @@ productsRouter.post("/", async (request, response) => {
     currentPrice,
     sku,
     descrition,
-    shortDescription,creator_id
+    shortDescription,
+    creator_id:request.user.id,
   });
 
   return response.json(product);
